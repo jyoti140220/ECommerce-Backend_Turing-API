@@ -1,10 +1,12 @@
+const env=require('dotenv').config()
 const express=require('express')
-var app=express()
 
-app.use("/",require('./routes/departments.js'))
-app.use('/',require('./routes/categories.js'))
+const app=express()
+const port=process.env.PORT_NO
+
+app.use("/",require('./routes/index.js'))
 
 app.listen(4050,()=>{
-    console.log("RUNNING...");
+    console.log(`Server Is Running On Port ${port}.... `);
 })
 

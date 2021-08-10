@@ -1,27 +1,17 @@
-const express = require('express');
-var router = express()
-var router = express.Router()
-const knex = require('../connect/connect.js')
+const express = require('express')
+const router = express.Router()
 
-router.get('/categories', (req, res) => {
-    knex('category').select('*').then(data => {
-        var alldata = {
-            count: data.length,
-            rows: data
-        }
-        res.send(alldata)
-    }).catch(err => { res.send(err) })
+const {getCategories,getCategoriesById,getCategoriesByProductId,getCategoriesByDepartmentId} = require('../controller/categories.js')
 
-})
-
-router.get('/categories/:categories_id',(req,res)=>{
-    knex('category').select('*').where('category_id',req.params.categories_id).then(data=>{
-        res.send(data)
-    }).catch(err=>{res.status(400).send(err)})
-
-})
-
-
+router.get('/categories', getCategories)
+router.get('/categories/:category_id',getCategoriesById)
+router.get('/categories/inProduct/:product_id',getCategoriesByProductId)
+router.get('/categories/inDepartment/:department_id',getCategoriesByDepartmentId)
 
 
 module.exports = router
+
+
+
+
+
