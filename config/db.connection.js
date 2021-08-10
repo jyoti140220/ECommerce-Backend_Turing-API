@@ -1,4 +1,3 @@
-// const env=require('dotenv').config()
 
 const knex=require('knex')({
     client:'mysql',
