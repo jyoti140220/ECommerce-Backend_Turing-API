@@ -11,14 +11,9 @@ const getDepartment = async (req, res) => {
 const getDepartmentById = async (req, res) => {
     await knex.from('department').select('*').where('department_id', req.params.department_id)
         .then((data) => {
-            if (data.length == 0) {
-                return res.status(400).json({message:"Do Not Exist Department With This ID",status:400})
-            } else {
-                return res.status(200).send(data[0])
-            }})
-        .catch((err) => {
-            return res.status(400).json({message: err,status: 404})})
-        
+            return (data.length == 0) ? res.status(400).json({message:"Do Not Exist Department With This ID",status:400}):res.status(200).send(data[0]);
+        }).catch((err) => {
+            return res.status(400).json({message: err,status: 404})})     
 }
 
 
