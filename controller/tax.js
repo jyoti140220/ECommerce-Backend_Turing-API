@@ -7,7 +7,6 @@ exports.getTaxes=async(req,res)=>{
         return res.status(400).json({message: err,status: 404})})
 }
 
-
 exports.getTaxByTaxId=async(req,res)=>{
     await knex('tax').select('*').where('tax_id',req.params.tax_id)
     .then((data)=>{
