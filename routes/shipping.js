@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
 const {getShippingRegions,getShippingRegionsByShippingRegionsId}=require('../controller/shipping.js')
 
 router.get('/shipping/regions',getShippingRegions)

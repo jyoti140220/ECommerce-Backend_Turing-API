@@ -5,5 +5,4 @@ const {getTaxes,getTaxByTaxId}=require('../controller/tax.js')
 router.get('/tax',getTaxes)
 router.get('/tax/:tax_id',getTaxByTaxId)
 
-
 module.exports=router
