@@ -8,7 +8,6 @@ const getDepartment = async (req, res) => {
 }
 
 
-
 const getDepartmentById = async (req, res) => {
     await knex.from('department').select('*').where('department_id', req.params.department_id)
         .then((data) => {
