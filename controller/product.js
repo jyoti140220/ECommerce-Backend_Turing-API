@@ -8,14 +8,24 @@ exports.getProduct=async(req,res)=>{
         var data1=data.map((item)=>{
             if (item['description'].length>1){
                 var description=item['description'].slice(0,3)
-                return ({...item,description})
-            }
-        })
-        return res.status(200).json({count:101,rows:data1})
-    }).catch((err)=>{
+                return ({...item,description})}})
+        return res.status(200).json({count:101,rows:data1})})
+    .catch((err)=>{
         return res.status(400).json({ message: err, status: 404 })})
 }
 
+
+exports.getproductBySearch = async (req, res) => {
+    var search = req.query.search;
+    await knex.from('product').select('product_id','name','description','price','discounted_price','thumbnail')
+    .where('name', 'like', `%${search}%`)
+    .orWhere('description', 'like', `%${search}%`).then((data)=>{
+        return res.status(200).json({count:data.length,rows:data})
+    .catch((err)=>{
+        return res.status(400).json({message: err,status: 404})})  
+
+    })
+}
 
 exports.getProductById=async(req,res)=>{
     await knex.from('product').select('*').where('product_id',req.params.product_id)
@@ -86,3 +96,5 @@ exports.createPostReviews=async(req,res)=>{
     .catch((err) => {
         return res.status(400).json({message: err,status: 404})})  
 }
+
+
