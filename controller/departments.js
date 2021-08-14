@@ -17,4 +17,5 @@ const getDepartmentById = async (req, res) => {
 }
 
 
+
 module.exports = { getDepartment, getDepartmentById }
