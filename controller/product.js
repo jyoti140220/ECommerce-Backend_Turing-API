@@ -47,6 +47,7 @@ exports.getProductByCategoryId=async(req,res)=>{
 
 
 
+
 exports.getProductByDepartmentId=async(req,res)=>{
     await knex.distinct().from('product').select('product.product_id','product.name','product.description','product.price','product.discounted_price','product.thumbnail')
     .join('product_category','product_category.product_id','=','product.product_id')
