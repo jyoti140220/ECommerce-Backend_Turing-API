@@ -1,5 +1,5 @@
 const knex=require('../config/db.connection.js')
-const { param } = require('../routes/product.js')
+// const { param } = require('../routes/product.js')
 
 exports.getProduct=async(req,res)=>{
     await knex.from('product').select('*')
@@ -18,12 +18,9 @@ exports.getProduct=async(req,res)=>{
 
 
 exports.getProductById=async(req,res)=>{
-    await knex.from('product').select('*').where('product_id',req.params.product_id).then((data)=>{
-        if (data.length == 0) {
-            return res.status(400).json({message:"Do Not Exist Product With This ID",status:400})
-        } else {
-            return res.status(200).send(data[0])
-        }})
+    await knex.from('product').select('*').where('product_id',req.params.product_id)
+    .then((data)=>{
+        return (data.length == 0) ? res.status(400).json({message:"Do Not Exist Product  With This ID",status:400}):res.status(200).send(data[0]);})
     .catch((err) => {
         return res.status(400).json({message: err,status: 404})})
 }
