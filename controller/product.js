@@ -94,5 +94,4 @@ const createPostReviews=async(req,res)=>{
         return res.status(400).json({message: err,status: 404})})  
 }
 
-
 module.exports={getProduct,getproductBySearch,getProductById,getProductByCategoryId,getProductByDepartmentId,getProductDetialsByProductId,getProductLocationByProductId,getProductReviewsByProductId,createPostReviews}

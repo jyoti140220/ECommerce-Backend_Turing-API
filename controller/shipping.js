@@ -8,6 +8,7 @@ const getShippingRegions=async(req,res)=>{
 }
 
 
+
 const getShippingRegionsByShippingRegionsId=async(req,res)=>{
     await knex.from('shipping').select('*').where('shipping_region_id',req.params.shipping_region_id)
     .then((data)=>{
