@@ -38,4 +38,5 @@ const getAttributesByProductId=async(req,res)=>{
 }
 
 
+
 module.exports={getAttributes,getAttributesById,getAttributesValueById,getAttributesByProductId}

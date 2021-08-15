@@ -1,5 +1,6 @@
 const knex = require('../config/db.connection.js')
 
+
 const getCategories = async (req, res) => {
     await knex.from('category').select('*').then((data) => {
         return res.status(200).json({ count: data.length, rows: data })})

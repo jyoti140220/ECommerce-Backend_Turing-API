@@ -3,8 +3,8 @@ const router = express.Router()
 
 const { getDepartment, getDepartmentById } = require('../controller/departments.js')
 
-router.get('/department', getDepartment)
-router.get('/department/:department_id', getDepartmentById)
+router.get('/departments', getDepartment)
+router.get('/departments/:department_id', getDepartmentById)
 
 module.exports = router
 
