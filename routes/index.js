@@ -7,6 +7,6 @@ router.use('/',require('./attributes.js'))
 router.use('/',require('./product.js'))
 router.use('/',require('./shipping.js'))
 router.use('/',require('./tax.js'))
-
+router.use('/',require('./customer.js'))
 
 module.exports=router
