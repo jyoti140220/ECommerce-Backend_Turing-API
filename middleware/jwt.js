@@ -27,7 +27,7 @@ const varifyToken=(req,res,next)=>{
         if (err){
             return next(createError.Unauthorized())
         }
-        res.send("varify")
+        console.log("token varify..")
         req.payload=payload
         next()})
 }

@@ -32,4 +32,29 @@ const getCustomerById=async(req,res)=>{
         return res.status(400).json({message: err,status: 404})})   
 }
 
-module.exports={customerRegister,customerLogin,getCustomerById}
+const updateCustomerDetialsById=async(req,res,next)=>{
+    await knex.from('customer').update({name:req.body.name,email:req.body.email,password:req.body.password}).where('customer_id',req.params.customer_id)
+    .then((data)=>{
+        return res.status(200).json({Message:"Data Update",status:200})
+    }).catch((err)=>{
+        return res.status(400).json({message: err,status: 404})})   
+}
+
+const updateAddressById=async(req,res)=>{
+    await knex.from('customer').update({country:req.body.country,region:req.body.region,city:req.body.city}).where('customer_id',req.params.customer_id)
+    .then((data)=>{
+        return res.status(200).json({Message:"Address Update",status:200})
+    }).catch((err)=>{
+        return res.status(400).json({message: err,status: 404})})   
+}
+
+
+const updateCreditCardById=async(req,res)=>{
+    await knex.from('customer').update({credit_card:req.body.credit_card}).where('customer_id',req.params.customer_id)
+    .then((data)=>{
+        return res.status(200).json({Message:"Credit-Card Update",status:200})
+    }).catch((err)=>{
+        return res.status(400).json({message: err,status: 404})})   
+}
+
+module.exports={customerRegister,customerLogin,getCustomerById,updateCustomerDetialsById,updateAddressById,updateCreditCardById}

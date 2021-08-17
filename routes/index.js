@@ -8,5 +8,6 @@ router.use('/',require('./product.js'))
 router.use('/',require('./shipping.js'))
 router.use('/',require('./tax.js'))
 router.use('/',require('./customer.js'))
+router.use('/',require('./orders.js'))
 
 module.exports=router
