@@ -9,5 +9,6 @@ router.use('/',require('./shipping.js'))
 router.use('/',require('./tax.js'))
 router.use('/',require('./customer.js'))
 router.use('/',require('./orders.js'))
+router.use('/',require('./shopping_cart.js'))
 
 module.exports=router
