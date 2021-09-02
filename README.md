@@ -15,6 +15,11 @@ $ sudo apt install nodejs
 ```
 $ sudo apt install npm
 ```
+### To check the version of node and npm
+```
+$ node -v
+$ npm -v
+```
 
 ### To Install Any npm Package or dependency
 ```
@@ -31,7 +36,7 @@ $ sudo apt-get install snap $ snap install postman
 ```
 $ npm start
 
-http://localhost:4050<endpoint>
+http://localhost:4050/<endpoint>
 
 ```
     
